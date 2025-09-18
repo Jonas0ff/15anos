@@ -1,0 +1,1659 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<title>Laura Marianne - 15 Anos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+  :root {
+    --gold: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    --gold-color: #FFD700;
+    --red: #8B0000;
+    --black: #0a0a0a;
+    --cream: #FFF8DC;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Playfair Display', serif;
+    background: #1a1a2e;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Background com gradiente cinematográfico melhorado */
+  .cinema-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(ellipse at top, #000000 0%, #1a0000 30%, #2a0000 60%, #ff910025 100%),
+      linear-gradient(180deg, #000000 0%, #1a0000 50%, #2a0000 100%);
+    z-index: -2;
+  }
+
+  /* Hollywood Icons Background Animation */
+  .hollywood-icons-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    overflow: hidden;
+  }
+
+  .hollywood-icons-bg.active {
+    opacity: 1;
+  }
+
+  .icon-row {
+    position: absolute;
+    display: flex;
+    gap: 100px;
+    opacity: 0;
+    animation: none;
+  }
+
+  .hollywood-icons-bg.active .icon-row {
+    opacity: 0.3;
+    animation: slide-icons 15s linear infinite;
+  }
+
+  .icon-row:nth-child(1) {
+    top: 10%;
+    animation-delay: 0s;
+  }
+
+  .icon-row:nth-child(2) {
+    top: 30%;
+    animation-delay: -5s;
+    animation-direction: reverse;
+  }
+
+  .icon-row:nth-child(3) {
+    top: 50%;
+    animation-delay: -10s;
+  }
+
+  .icon-row:nth-child(4) {
+    top: 70%;
+    animation-delay: -7s;
+    animation-direction: reverse;
+  }
+
+  .icon-row:nth-child(5) {
+    top: 85%;
+    animation-delay: -3s;
+  }
+
+  @keyframes slide-icons {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .hollywood-icon {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    animation: icon-rotate 10s linear infinite;
+  }
+
+  @keyframes icon-rotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  .star-icon {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') no-repeat center;
+    background-size: contain;
+  }
+
+  .clapper-icon {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><rect x="2" y="13" width="20" height="8" rx="1"/><path d="M17 3l2 4-2 1-2-4m-4 0l2 4-2 1-2-4M7 3l2 4-2 1-2-4m-3 5h20v2H2z"/></svg>') no-repeat center;
+    background-size: contain;
+  }
+
+  .oscar-icon {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><ellipse cx="12" cy="8" rx="3" ry="4"/><path d="M10 12h4l1 8h-6z"/><rect x="9" y="20" width="6" height="2"/></svg>') no-repeat center;
+    background-size: contain;
+  }
+
+  /* HOLOFOTES SUPERIORES APRIMORADOS */
+  .top-spotlights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .top-spotlights.active {
+    opacity: 1;
+  }
+
+  .top-spotlight {
+    position: absolute;
+    top: -92px;
+    width: 160px;
+    height: 198px;
+    opacity: 0;
+    transform-style: preserve-3d;
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .top-spotlight.active {
+    opacity: 1;
+    animation: spotlight-entrance 2s ease-out;
+  }
+
+  @keyframes spotlight-entrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(-20px);
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .top-spotlight.left {
+    left: -79px;
+    transform: rotate(340deg);
+  }
+
+  .top-spotlight.right {
+    right: -70px;
+    transform: rotate(-20deg);
+  }
+
+  /* Corpo do holofote 3D */
+  .spotlight-body {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 150px;
+    background: linear-gradient(180deg, 
+      #2a2a2a 0%, 
+      #3a3a3a 20%, 
+      #4a4a4a 40%, 
+      #3a3a3a 60%, 
+      #2a2a2a 100%
+    );
+    border-radius: 60px 60px 80px 80px / 60px 60px 100px 100px;
+    box-shadow: 
+      0 10px 30px rgba(0,0,0,0.8),
+      inset 0 -5px 15px rgba(0,0,0,0.5),
+      inset 0 5px 10px rgba(255,255,255,0.1);
+  }
+
+  /* Anel decorativo do holofote */
+  .spotlight-ring {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 40px;
+    background: linear-gradient(180deg,
+      #FFD700 0%,
+      #FFA500 50%,
+      #FFD700 100%
+    );
+    border-radius: 50%;
+    box-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.6),
+      inset 0 -2px 5px rgba(0,0,0,0.3);
+  }
+
+  /* Lâmpada interior */
+  .spotlight-bulb {
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 200, 0.7) 30%,
+      rgba(255, 215, 0, 0.5) 60%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(5px);
+    animation: bulb-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes bulb-glow {
+    0% {
+      transform: translateX(-50%) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(-50%) scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  /* Feixe de luz principal */
+  .spotlight-beam {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 600px solid rgba(255, 215, 0, 0.15);
+    filter: blur(2px);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    animation: beam-sweep 4s ease-in-out infinite;
+  }
+
+  .top-spotlight.active .spotlight-beam {
+    opacity: 1;
+  }
+
+  @keyframes beam-sweep {
+    0%, 100% {
+      transform: translateX(-50%) scaleX(1) rotate(0deg);
+      filter: blur(2px);
+    }
+    50% {
+      transform: translateX(-50%) scaleX(1.1) rotate(2deg);
+      filter: blur(1px);
+    }
+  }
+
+  /* Raios de luz secundários */
+  .spotlight-rays {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 600px;
+    background: conic-gradient(
+      from 0deg at 50% 0%,
+      transparent 0deg,
+      transparent 80deg,
+      rgba(255, 255, 255, 0) 80deg,
+      rgba(255, 255, 255, 0.02) 85deg,
+      rgba(255, 215, 0, 0.05) 88deg,
+      rgba(255, 215, 0, 0.08) 90deg,
+      rgba(255, 215, 0, 0.05) 92deg,
+      rgba(255, 255, 255, 0.02) 95deg,
+      rgba(255, 255, 255, 0) 100deg,
+      transparent 100deg,
+      transparent 360deg
+    );
+    opacity: 0;
+    transition: opacity 1.5s ease 0.5s;
+    animation: rays-rotate 20s linear infinite;
+  }
+
+  .top-spotlight.active .spotlight-rays {
+    opacity: 1;
+  }
+
+  @keyframes rays-rotate {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+
+  /* Partículas de poeira no feixe de luz */
+  .dust-particles {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 500px;
+    opacity: 0;
+    transition: opacity 2s ease 1s;
+  }
+
+  .top-spotlight.active .dust-particles {
+    opacity: 0.6;
+  }
+
+  .dust-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: dust-float 10s infinite linear;
+  }
+
+  @keyframes dust-float {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(500px) translateX(50px);
+      opacity: 0;
+    }
+  }
+
+  /* Padrão de estrelas no fundo */
+  .stars-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #FFD700, transparent),
+      radial-gradient(2px 2px at 40px 70px, #FFA500, transparent),
+      radial-gradient(1px 1px at 50px 90px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 80px, #FFD700, transparent),
+      radial-gradient(2px 2px at 80px 10px, #FFA500, transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars-twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes stars-twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Partículas douradas flutuantes */
+  .particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-up 15s infinite linear;
+  }
+
+  @keyframes float-up {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Container principal */
+  .main-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* TELA DE ENTRADA COM TAPETE VERMELHO */
+  .entrance-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .entrance-screen.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  /* Cortinas teatrais */
+  .stage-curtains {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        #8B0000 0px,
+        #DC143C 20px,
+        #8B0000 40px
+      );
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+  }
+
+  .curtain-left {
+    left: -5%;
+    transform-origin: left center;
+    animation: curtain-sway-left 4s ease-in-out infinite alternate;
+  }
+
+  .curtain-right {
+    right: -5%;
+    transform-origin: right center;
+    animation: curtain-sway-right 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes curtain-sway-left {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes curtain-sway-right {
+    0% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Holofotes do chão */
+  .floor-spotlights {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 15;
+  }
+
+  .floor-spotlight {
+    position: absolute;
+    bottom: -50px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+    transition: all 1s ease;
+  }
+
+  .floor-spotlight::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) perspective(500px) rotateX(-60deg);
+    width: 300px;
+    height: 600px;
+    background: conic-gradient(
+      from 180deg at 50% 100%,
+      transparent 0deg,
+      transparent 70deg,
+      rgba(255, 215, 0, 0) 70deg,
+      rgba(255, 215, 0, 0.1) 85deg,
+      rgba(255, 215, 0, 0.3) 90deg,
+      rgba(255, 215, 0, 0.5) 95deg,
+      rgba(255, 215, 0, 0.3) 100deg,
+      rgba(255, 215, 0, 0.1) 105deg,
+      rgba(255, 215, 0, 0) 110deg,
+      transparent 110deg
+    );
+    filter: blur(15px);
+    transform-origin: bottom center;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
+  .floor-spotlight.left {
+    left: 10px;
+    transform: rotate(-15deg);
+  }
+
+  .floor-spotlight.right {
+    right: 10px;
+    transform: rotate(15deg);
+  }
+
+  .floor-spotlight.active::after {
+    opacity: 1;
+    animation: spotlight-beam 3s ease-in-out infinite;
+  }
+
+  @keyframes spotlight-beam {
+    0%, 100% {
+      transform: translateX(-50%) perspective(500px) rotateX(-60deg) scaleY(1);
+      filter: blur(15px) brightness(1);
+    }
+    50% {
+      transform: translateX(-50%) perspective(500px) rotateX(-60deg) scaleY(1.1);
+      filter: blur(12px) brightness(1.2);
+    }
+  }
+
+  /* Paparazzi flashes */
+  .paparazzi-flashes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .flash {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: camera-flash 3s infinite;
+  }
+
+  .flash:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+  .flash:nth-child(2) { top: 30%; right: 15%; animation-delay: 0.5s; }
+  .flash:nth-child(3) { bottom: 40%; left: 20%; animation-delay: 1s; }
+  .flash:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1.5s; }
+  .flash:nth-child(5) { top: 50%; left: 5%; animation-delay: 2s; }
+
+  @keyframes camera-flash {
+    0%, 95%, 100% { opacity: 0; transform: scale(1); }
+    96% { opacity: 1; transform: scale(2); }
+  }
+
+  /* Nome em caligrafia dourada */
+  .entrance-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: entrance-fade 2s ease;
+  }
+
+  @keyframes entrance-fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .golden-name {
+    font-family: 'Allura', cursive;
+    font-size: 6rem;
+    background: linear-gradient(
+      135deg,
+      #FFD700 0%,
+      #FFED4B 25%,
+      #FFA500 50%,
+      #FFD700 75%,
+      #FFED4B 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+    animation: shimmer 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glow {
+    0% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+    100% { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)); }
+  }
+
+  /* Subtítulo */
+  .subtitle {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  /* Hollywood stars decoration */
+  .hollywood-walk {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .walk-star {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+    animation: star-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes star-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* Botão Enter luxuoso */
+  .enter-button {
+    padding: 20px 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 10px 30px rgba(255, 215, 0, 0.3),
+      inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    margin-top: 30px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .enter-button:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 
+      0 15px 40px rgba(255, 215, 0, 0.5),
+      inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .enter-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s;
+  }
+
+  .enter-button:hover::before {
+    animation: shine 0.5s ease;
+  }
+
+  @keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+
+  /* CONTEÚDO PRINCIPAL */
+  .content {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
+  .content.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Ticket dourado principal melhorado */
+  .golden-ticket {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 50%, #FFF8DC 100%);
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin: 30px auto;
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.3),
+      0 0 100px rgba(255, 215, 0, 0.2),
+      inset 0 0 30px rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(5deg);
+    animation: ticket-float 3s ease-in-out infinite;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .golden-ticket::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  @keyframes ticket-float {
+    0%, 100% { transform: perspective(1000px) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateX(5deg) translateY(-5px); }
+  }
+
+  .ticket-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .ticket-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B0000, #DC143C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(139, 0, 0, 0.2);
+  }
+
+  .ticket-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #504508;
+    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+  }
+
+  .hollywood-stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    color: var(--gold-color);
+    margin: 15px 0;
+  }
+
+  .star-icon-ticket {
+    animation: star-pulse-ticket 1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+
+  @keyframes star-pulse-ticket {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+  }
+
+  .ticket-info {
+    color: #333;
+    margin: 25px 0;
+  }
+
+  /* Frase especial destacada */
+  .special-phrase {
+    text-align: center;
+    padding: 15px;
+    margin: 15px 0;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border-radius: 15px;
+    border: 2px solid var(--gold-color);
+    position: relative;
+  }
+
+  .special-phrase::before,
+  .special-phrase::after {
+    content: '✨';
+    position: absolute;
+    font-size: 25px;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .special-phrase::before {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .special-phrase::after {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 1s;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-50%) scale(1.3) rotate(180deg); opacity: 1; }
+  }
+
+  .special-phrase-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+    font-style: italic;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px dashed rgba(139, 0, 0, 0.2);
+    position: relative;
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:hover {
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  .info-label {
+    font-weight: 700;
+    color: #8B0000;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .info-value {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  /* Confirmação de presença */
+  .confirmation-notice {
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(139, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #8B0000;
+    font-weight: 600;
+    font-size: 1rem;
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 1; }
+  }
+
+  /* Red carpet section melhorado */
+  .red-carpet-section {
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(
+      180deg,
+      #8B0000 0%,
+      #DC143C 50%,
+      #8B0000 100%
+    );
+    border-radius: 15px;
+    box-shadow: 
+      inset 0 5px 20px rgba(0, 0, 0, 0.3),
+      0 10px 30px rgba(139, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .red-carpet-section::before {
+    content: '🌟';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    animation: star-rotate 5s linear infinite;
+  }
+
+  @keyframes star-rotate {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+  }
+
+  /* Tabs de navegação melhorados */
+  .nav-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    flex: 1;
+    min-width: 100px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--gold-color);
+    color: var(--gold-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  .tab-button:hover::before,
+  .tab-button.active::before {
+    left: 0;
+  }
+
+  .tab-button:hover,
+  .tab-button.active {
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  }
+
+  .tab-icon {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Location section */
+  .location-info {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .location-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .location-row:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px);
+  }
+
+  .location-icon {
+    font-size: 2rem;
+  }
+
+  .location-text {
+    flex: 1;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .location-text strong {
+    color: var(--gold-color);
+    font-size: 1.1rem;
+  }
+
+  /* Gift section */
+  .qr-section {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .gift-header {
+    margin-bottom: 20px;
+  }
+
+  .gift-title {
+    font-size: 1.8rem;
+    color: var(--gold-color);
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  .gift-subtitle {
+    color: #fff;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .qr-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(255, 215, 0, 0.2);
+    position: relative;
+    animation: qr-float 3s ease-in-out infinite;
+  }
+
+  @keyframes qr-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  .qr-code-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .pix-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--gold-color);
+  }
+
+  .pix-key {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--gold-color);
+    word-break: break-all;
+    font-weight: bold;
+  }
+
+  /* Footer */
+  .footer-decoration {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    position: relative;
+  }
+
+  .footer-stars {
+    font-size: 2.5rem;
+    color: var(--gold-color);
+    letter-spacing: 15px;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  .footer-message {
+    margin-top: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    color: var(--gold-color);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Confetti animation */
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    display: none;
+  }
+
+  .confetti-container.active {
+    display: block;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--gold-color);
+    animation: confetti-fall 3s linear forwards;
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .golden-name {
+      font-size: 4rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+    }
+    
+    .enter-button {
+      font-size: 1.5rem;
+      padding: 15px 40px;
+    }
+    
+    .golden-ticket {
+      margin: 20px 10px;
+      padding: 30px 20px;
+    }
+    
+    .ticket-title {
+      font-size: 1.6rem;
+    }
+    
+    .special-phrase-text {
+      font-size: 1rem;
+    }
+    
+    .tab-button {
+      font-size: 0.9rem;
+      padding: 12px 15px;
+      min-width: 80px;
+    }
+    
+    .qr-code-img {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .top-spotlight {
+      width: 300px;
+      height: 500px;
+    }
+    
+    .top-spotlight.left {
+  left: -42px;
+  transform: rotate(-30deg);   /* inclina para dentro */
+}
+
+.top-spotlight.right {
+  right: -42px;
+  transform: rotate(30deg);    /* inclina para dentro */
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Background cinematográfico -->
+  <div class="cinema-bg"></div>
+  <div class="stars-background"></div>
+  
+  <!-- Hollywood Icons Background -->
+  <div class="hollywood-icons-bg" id="hollywoodIconsBg">
+    <!-- Múltiplas fileiras de ícones -->
+    <div class="icon-row">
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+    </div>
+    <div class="icon-row">
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+    </div>
+    <div class="icon-row">
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+    </div>
+    <div class="icon-row">
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+    </div>
+    <div class="icon-row">
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+      <div class="hollywood-icon oscar-icon"></div>
+      <div class="hollywood-icon star-icon"></div>
+      <div class="hollywood-icon clapper-icon"></div>
+    </div>
+  </div>
+  
+  <!-- Partículas douradas -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Confetti container -->
+  <div class="confetti-container" id="confettiContainer"></div>
+  
+  <!-- Holofotes superiores aprimorados -->
+  <div class="top-spotlights" id="topSpotlights">
+    <div class="top-spotlight left" id="topSpotlightLeft">
+      <div class="spotlight-body"></div>
+      <div class="spotlight-ring"></div>
+      <div class="spotlight-bulb"></div>
+      <div class="spotlight-beam"></div>
+      <div class="spotlight-rays"></div>
+      <div class="dust-particles">
+        <div class="dust-particle" style="left: 20%; animation-delay: 0s;"></div>
+        <div class="dust-particle" style="left: 40%; animation-delay: 2s;"></div>
+        <div class="dust-particle" style="left: 60%; animation-delay: 4s;"></div>
+        <div class="dust-particle" style="left: 80%; animation-delay: 6s;"></div>
+        <div class="dust-particle" style="left: 30%; animation-delay: 8s;"></div>
+      </div>
+    </div>
+    <div class="top-spotlight right" id="topSpotlightRight">
+      <div class="spotlight-body"></div>
+      <div class="spotlight-ring"></div>
+      <div class="spotlight-bulb"></div>
+      <div class="spotlight-beam"></div>
+      <div class="spotlight-rays"></div>
+      <div class="dust-particles">
+        <div class="dust-particle" style="left: 25%; animation-delay: 1s;"></div>
+        <div class="dust-particle" style="left: 45%; animation-delay: 3s;"></div>
+        <div class="dust-particle" style="left: 65%; animation-delay: 5s;"></div>
+        <div class="dust-particle" style="left: 85%; animation-delay: 7s;"></div>
+        <div class="dust-particle" style="left: 35%; animation-delay: 9s;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tela de entrada -->
+  <div class="entrance-screen" id="entranceScreen">
+    <!-- Cortinas -->
+    <div class="stage-curtains">
+      <div class="curtain curtain-left"></div>
+      <div class="curtain curtain-right"></div>
+    </div>
+    
+    <!-- Holofotes do chão -->
+    <div class="floor-spotlights">
+      <div class="floor-spotlight left" id="floorSpotlightLeft"></div>
+      <div class="floor-spotlight right" id="floorSpotlightRight"></div>
+    </div>
+    
+    <!-- Flashes de paparazzi -->
+    <div class="paparazzi-flashes">
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+    </div>
+    
+    <!-- Estrelas do passeio da fama -->
+    <div class="hollywood-walk">
+      <div class="walk-star"></div>
+      <div class="walk-star"></div>
+      <div class="walk-star"></div>
+    </div>
+    
+    <!-- Conteúdo de entrada -->
+    <div class="entrance-content">
+      <h1 class="golden-name">Laura Marianne</h1>
+      <p class="subtitle">Uma Noite em Hollywood</p>
+      <button class="enter-button" id="enterBtn">
+        ⭐ ENTRAR NO TAPETE VERMELHO ⭐
+      </button>
+    </div>
+  </div>
+  
+  <!-- Conteúdo principal -->
+  <div class="main-container">
+    <div class="content" id="mainContent">
+      <!-- Ticket dourado principal -->
+      <div class="golden-ticket">
+        <div class="ticket-header">
+          <h2 class="ticket-title">Festa de 15 Anos</h2>
+          <p class="ticket-subtitle">Laura Marianne</p>
+          <div class="hollywood-stars">
+            <span class="star-icon-ticket" style="--i: 0">⭐</span>
+            <span class="star-icon-ticket" style="--i: 1">⭐</span>
+            <span class="star-icon-ticket" style="--i: 2">⭐</span>
+            <span class="star-icon-ticket" style="--i: 3">⭐</span>
+            <span class="star-icon-ticket" style="--i: 4">⭐</span>
+          </div>
+        </div>
+        
+        <div class="ticket-info">
+          <!-- Frase especial antes da data -->
+          <div class="special-phrase">
+            <p class="special-phrase-text">Pessoas especiais participam de momentos inesquecíveis!</p>
+          </div>
+          
+          <div class="info-row">
+            <span class="info-label">📅 Data</span>
+            <span class="info-value">01 de Novembro de 2025</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">🕐 Horário</span>
+            <span class="info-value">19h00</span>
+          </div>
+          
+          <!-- Confirmação de presença -->
+          <div class="confirmation-notice">
+            📌 Confirme sua presença até o dia 10/10
+          </div>
+        </div>
+      </div>
+      
+      <!-- Red Carpet Section -->
+      <div class="red-carpet-section">
+        <div class="nav-tabs">
+          <button class="tab-button active" data-tab="location">
+            <span class="tab-icon">📍</span>
+            LOCAL
+          </button>
+          <button class="tab-button" data-tab="gift">
+            <span class="tab-icon">🎁</span>
+            PRESENTE
+          </button>
+        </div>
+        
+        <div class="tab-content">
+          <!-- Location Tab -->
+          <div class="tab-pane active" id="location">
+            <div class="location-info">
+              <div class="location-row">
+                <span class="location-icon">🏛️</span>
+                <div class="location-text">
+                  <strong>Espaço Mariana Buffet e Eventos</strong><br>
+                  Av. Rui Barbosa, 2743 - Vila Santa Terezinha
+                </div>
+              </div>
+              <div class="location-row">
+                <span class="location-icon">📍</span>
+                <div class="location-text">
+                  <strong>Carapicuíba - São Paulo</strong><br>
+                  CEP: 06315-001
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gift Tab -->
+          <div class="tab-pane" id="gift">
+            <div class="qr-section">
+              <div class="gift-header">
+                <h3 class="gift-title">🎁 Presente via PIX</h3>
+                <p class="gift-subtitle">Sua presença é o melhor presente!</p>
+              </div>
+              <div class="qr-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020101021126330014br.gov.bcb.pix0111238994558945204000053039865802BR5918LAURA%20M%20S%20OLIVEIRA6013SANTANA%20DE%20PA62070503***63044371" alt="QR Code PIX" class="qr-code-img">
+              </div>
+              <div class="pix-info">
+                <p style="color: #ffffff; margin-bottom: 10px;">Chave PIX (CPF):</p>
+                <p class="pix-key">238.994.558-94</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-decoration">
+        <div class="footer-stars">⭐⭐⭐⭐⭐</div>
+        <p class="footer-message">Laura Marianne</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Áudio do sino real (arquivo deve ficar na mesma pasta do HTML) -->
+  <audio id="bellAudio" src="sinos.mp3" preload="auto"></audio>
+
+  <script>
+    // Criar partículas douradas
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = Math.random() * 10 + 5 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        container.appendChild(particle);
+      }
+    }
+
+    // Entrar no site com efeitos aprimorados
+    document.getElementById('enterBtn').addEventListener('click', function() {
+      // Ativar ícones de Hollywood no fundo
+      document.getElementById('hollywoodIconsBg').classList.add('active');
+      
+      // Ativar holofotes superiores aprimorados
+      setTimeout(() => {
+        document.getElementById('topSpotlights').classList.add('active');
+        document.getElementById('topSpotlightLeft').classList.add('active');
+        document.getElementById('topSpotlightRight').classList.add('active');
+      }, 500);
+      
+      // 🔔 Tocar o áudio real de sinos (arquivo MP3)
+      try {
+        const bell = document.getElementById('bellAudio');
+        bell.currentTime = 0;
+        // play() retorna uma Promise — em alguns navegadores pode falhar se não houver interação do usuário,
+        // mas aqui já é um clique do usuário.
+        bell.play().catch(err => console.log('Erro ao reproduzir áudio:', err));
+      } catch(e) {
+        console.log('Não foi possível reproduzir o áudio', e);
+      }
+      
+      // Criar confetti
+      setTimeout(() => {
+        createConfetti();
+      }, 700);
+      
+      // Animação de saída
+      setTimeout(() => {
+        document.getElementById('entranceScreen').classList.add('hidden');
+        document.getElementById('mainContent').classList.add('visible');
+      }, 1500);
+    });
+
+    // Criar confetti
+    function createConfetti() {
+      const container = document.getElementById('confettiContainer');
+      container.classList.add('active');
+      
+      const colors = ['#FFD700', '#FFA500', '#DC143C', '#8B0000', '#FFF'];
+      
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confetti.style.width = Math.random() * 10 + 5 + 'px';
+        confetti.style.height = confetti.style.width;
+        container.appendChild(confetti);
+      }
+      
+      setTimeout(() => {
+        container.classList.remove('active');
+        container.innerHTML = '';
+      }, 5000);
+    }
+
+    // Tabs navigation
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        // Remover active de todos
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        
+        // Adicionar active ao clicado
+        this.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+
+    // Inicializar partículas ao carregar
+    window.addEventListener('load', function() {
+      createParticles();
+      
+      // Adicionar flashes aleatórios periodicamente
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          createRandomFlash();
+        }
+      }, 3000);
+    });
+
+     // Criar flash aleatório
+    function createRandomFlash() {
+      const flash = document.createElement('div');
+      flash.style.position = 'fixed';
+      flash.style.left = Math.random() * window.innerWidth + 'px';
+      flash.style.top = Math.random() * window.innerHeight + 'px';
+      flash.style.width = '100px';
+      flash.style.height = '100px';
+      flash.style.background = 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 50%)';
+      flash.style.borderRadius = '50%';
+      flash.style.pointerEvents = 'none';
+      flash.style.zIndex = '999';
+      flash.style.opacity = '0';
+      flash.style.transition = 'opacity 0.1s ease';
+      
+      document.body.appendChild(flash);
+      
+      setTimeout(() => {
+        flash.style.opacity = '1';
+        flash.style.transform = 'scale(2)';
+      }, 10);
+      
+      setTimeout(() => {
+        flash.remove();
+      }, 200);
+    }
+  </script>
+</body>
+</html>
